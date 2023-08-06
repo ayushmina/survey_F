@@ -1,0 +1,194 @@
+.create-survey-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .create-survey-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .create-survey-container label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .create-survey-container input[type="text"],
+  .create-survey-container select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .create-survey-container input[type="text"]:focus,
+  .create-survey-container select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .create-survey-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .create-survey-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .survey-list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  .survey-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .survey-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .survey-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .delete-button,
+  .view-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .view-button {
+    background-color: #007bff;
+  }
+  
+  .delete-button:hover,
+  .view-button:hover {
+    background-color: #c82333;
+  }
+  
+  .questions-container {
+    margin-top: 10px;
+  }
+  
+  .question {
+    margin-bottom: 10px;
+  }
+  
+  /* Add responsive styles */
+  @media screen and (max-width: 768px) {
+    .survey-item {
+      padding: 15px;
+    }
+  }
+  /* ... (existing CSS rules) */
+
+.survey-item input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.survey-item .edit-button {
+  background-color: #ffc107;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-left: 10px;
+}
+
+.survey-item .edit-button:hover {
+  background-color: #e0a800;
+}
+.participation-component {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.participation-component h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.question {
+  margin-bottom: 15px;
+}
+
+.question p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.question input[type="text"],
+.question label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.question input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.question label input[type="radio"] {
+  margin-right: 5px;
+}
+
+.question label:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .participation-component {
+    padding: 15px;
+  }
+
+  .question p {
+    font-size: 14px;
+  }
+
+  .question input[type="text"],
+  .question label {
+    font-size: 14px;
+  }
+}
+
+
+  
