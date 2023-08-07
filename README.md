@@ -1,6 +1,3 @@
-Certainly! Here's a template for a README file that explains how to use your survey application, including creating surveys, editing them, and responding to survey questions. Feel free to customize it according to your application's specific details.
-
----
 
 # Survey Application
 
@@ -102,4 +99,3 @@ screenshot
 ![Alt text](image-4.png)
 ---
 
-Feel free to enhance and customize this README template based on your project's unique features and requirements. Make sure to provide clear instructions for users to navigate and utilize your survey application effectively.
