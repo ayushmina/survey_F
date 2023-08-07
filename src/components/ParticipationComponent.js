@@ -50,7 +50,6 @@ const ParticipationComponent = ({ onRespond }) => {
       }else{
         console.log(res.data);
         alert("response submited")
-        window.location('/');
       }
     })
   }

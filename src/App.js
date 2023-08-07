@@ -45,7 +45,7 @@ function App() {
               </Routes>
 
               {/* <SurveyList surveys={surveyData} onEdit={handleQuestionEdit}></ SurveyList> */}
-              <ParticipationComponent surveys={surveyData} />
+              {/* <ParticipationComponent surveys={surveyData} /> */}
     </>
   );
 }
