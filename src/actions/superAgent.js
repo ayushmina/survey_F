@@ -5,8 +5,7 @@ const cookie = new Cookies();
 
 let AuthIntercept = require('superagent-intercept')((err, res) => {
     if (res && res.body && (res.body.statusCode === 401 || res.body.statusCode === 403)) {
-         removeSession();
-         window.location = '/';
+        //  removeSession();
          return
     }
 });
@@ -17,7 +16,7 @@ let removeSession = () => {
 }
 
 const getToken = () => {
-    let token = cookie.get('x-access-token-ns', { path: '/' });
+    let token = cookie.get('token', { path: '/' });
     // console.log(token);
     return token
 }

@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
+import surveyActions from '../actions/surveyActions';
+import Cookies from 'universal-cookie';
 
+const cookie = new Cookies();
 const Home = ({ onSubmit }) => {
+     
+
+  cookie.set("token","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGQwNzY4MjE3MzRkYWM4ZmVjMjkxMjciLCJpYXQiOjE2OTEzODM0Mjd9.m4TOWRkk3zzNPojGA7MeTJGCRQYpr0VRvYmFrOT3DzY")
+  
   const [title, setTitle] = useState('');
   const [questions, setQuestions] = useState([{ type: 'text', text: '', options: [''] }]);
 
@@ -37,10 +44,24 @@ const Home = ({ onSubmit }) => {
     setQuestions(newQuestions);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit =async () => {
     onSubmit({ title, questions });
-    setTitle('');
+  
+    let dataToSend={
+      Title:title,
+      questions
+    }
+    await surveyActions.addPost(dataToSend,(err,res)=>{
+      if(err){
+
+      }else{
+        console.log(res);
+        alert("add successfully")
+         setTitle('');
     setQuestions([{ type: 'text', text: '', options: [''] }]);
+      }
+    })
+   
   };
 
   return (

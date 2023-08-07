@@ -1,11 +1,11 @@
 import Agent from "./superAgent";
 import config from '../config/configg';
-import {ServerError} from '../utils/helpers';
+import {ServerError} from './helper';
 const BACKEND_URL = config.BACKEND_URL;
 
-function getPost(payload, cb) {
+function getsurvey(payload, cb) {
   Agent
-    .fire('get', `${BACKEND_URL}/users/getPost`)
+    .fire('get', `${BACKEND_URL}/getsurvey`)
     .query(payload)
     .end((err, res) => {
       var error = err || res.error ? ServerError(res) : (res.body && res.body.error) ? ServerError(res) : null;
@@ -13,10 +13,9 @@ function getPost(payload, cb) {
     });
 }
 
-function editPost(payload, id, cb) {
+function getSurveyById(id, cb) {
   Agent
-    .fire('post', `${BACKEND_URL}/users/editPost/${id}`)
-    .send(payload)
+    .fire('get', `${BACKEND_URL}/getSurveyById/${id}`)
     .end((err, res) => {
       var error = err || res.error ? ServerError(res) : (res.body && res.body.error) ? ServerError(res) : null;
       if (typeof cb === 'function') return cb(error, res && res.body);
@@ -25,16 +24,16 @@ function editPost(payload, id, cb) {
 
 function addPost(payload, cb) {
   Agent
-    .fire('post', `${BACKEND_URL}/users/postJob`)
+    .fire('post', `${BACKEND_URL}/createSurvey`)
     .send(payload)
     .end((err, res) => {
       var error = err || res.error ? ServerError(res) : (res.body && res.body.error) ? ServerError(res) : null;
       if (typeof cb === 'function') return cb(error, res && res.body);
     });
 }
-function ApplyPost(payload, cb) {
+function updateSurvey(payload, cb) {
   Agent
-    .fire('post', `${BACKEND_URL}/users/applypost`)
+    .fire('post',`${BACKEND_URL}/updateSurvey`)
     .send(payload)
     .end((err, res) => {
       var error = err || res.error ? ServerError(res) : (res.body && res.body.error) ? ServerError(res) : null;
@@ -42,36 +41,29 @@ function ApplyPost(payload, cb) {
     });
 }
 
-function deletePost(id, cb) {
+function DeleteSurvey(id, cb) {
   Agent
-    .fire('get', `${BACKEND_URL}/users/deletePost/${id}`)
+    .fire('post', `${BACKEND_URL}/DeleteSurvey`)
+    .send(id)
     .end((err, res) => {
       var error = err || res.error ? ServerError(res) : (res.body && res.body.error) ? ServerError(res) : null;
       if (typeof cb === 'function') return cb(error, res && res.body);
     });
 }
 
-function repost(id, cb) {
+function responseCreate(id, cb) {
   Agent
-    .fire('get', `${BACKEND_URL}/users/repost/${id}`)
+    .fire('post', `${BACKEND_URL}/responseCreate`)
+    .send(id)
     .end((err, res) => {
       var error = err || res.error ? ServerError(res) : (res.body && res.body.error) ? ServerError(res) : null;
       if (typeof cb === 'function') return cb(error, res && res.body);
     });
 }
 
-function myPost(text, cb) {
+function myResponse(text, cb) {
   Agent
-    .fire('get', `${BACKEND_URL}/users/ownJob?text=${text}`)
-    .end((err, res) => {
-      var error = err || res.error ? ServerError(res) : (res.body && res.body.error) ? ServerError(res) : null;
-      if (typeof cb === 'function') return cb(error, res && res.body);
-    });
-}
-
-function Search(payload, cb) {
-  Agent
-    .fire('get', `${BACKEND_URL}/users/searchJobs?text=${payload}`)
+    .fire('get', `${BACKEND_URL}/myResponse`)
     .end((err, res) => {
       var error = err || res.error ? ServerError(res) : (res.body && res.body.error) ? ServerError(res) : null;
       if (typeof cb === 'function') return cb(error, res && res.body);
@@ -80,12 +72,13 @@ function Search(payload, cb) {
 
 
 export default {
-  getPost,
-  editPost,
+  getsurvey,
+  getSurveyById,
   addPost,
-  deletePost,
-  repost,
-  myPost,
-  Search,
-  ApplyPost
+  DeleteSurvey,
+  myResponse,
+  responseCreate,
+  updateSurvey,
+  
+
 }

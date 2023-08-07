@@ -5,7 +5,7 @@ import surveyActions from '../actions/surveyActions';
 import { useNavigate } from 'react-router-dom';
 
 
-const SurveyList = ({ surveys, onEdit }) => {
+const SurveyListForResponse = ({ surveys, onEdit }) => {
   const navigate = useNavigate();
 
   const [list,setList]=useState([]);
@@ -22,8 +22,6 @@ const SurveyList = ({ surveys, onEdit }) => {
   },[])
   
   const [expandedSurveyIndex, setExpandedSurveyIndex] = useState(-1);
-  const [editedTitle, setEditedTitle] = useState('');
-  const [editedQuestion, setEditedQuestion] = useState('');
 
   const handleExpandSurvey = (surveyIndex) => {
     if (expandedSurveyIndex === surveyIndex) {
@@ -33,13 +31,6 @@ const SurveyList = ({ surveys, onEdit }) => {
     }
   };
 
-  const handleTitleEdit = (surveyIndex) => {
-    setEditedTitle(surveys[surveyIndex].title);
-  };
-
-  const handleQuestionEdit = (questionText) => {
-    setEditedQuestion(questionText);
-  };
   const onDelete=async (id)=>{
     let dataTosend={
       id:id
@@ -63,13 +54,12 @@ const SurveyList = ({ surveys, onEdit }) => {
         <div key={surveyIndex} className="survey-item">
           <h3>{survey.Title}</h3>
           <div className="survey-actions">
-            <button className="delete-button" onClick={() => onDelete(survey._id)}>Delete</button>
             <button className="view-button" onClick={() => handleExpandSurvey(surveyIndex)}>
               {expandedSurveyIndex === surveyIndex ? 'Collapse' : 'View Questions'}
             </button>
             <button className="edit-button" onClick={() => {
-              navigate(`/updateSurvey/${survey._id}`);
-            }}>Edit</button>
+              navigate(`/Participation/${survey._id}`);
+            }}>Response</button>
           </div>
           {expandedSurveyIndex === surveyIndex && (
             <div className="questions-container">
@@ -154,4 +144,4 @@ const SurveyList = ({ surveys, onEdit }) => {
   );
 };
 
-export default SurveyList;
+export default SurveyListForResponse;
